@@ -1109,12 +1109,14 @@ document.getElementById('bulk-submit-btn')?.addEventListener('click', e => {
 // ─────────────────────────────────────────────
 document.getElementById('join-challenge-btn')?.addEventListener('click', e => {
   e.stopPropagation();
+  // Open Telegram bot
+  window.open('https://t.me/contespackcraft_bot', '_blank');
   const btn = document.getElementById('join-challenge-btn');
   btn.textContent = '✓ JOINED!';
   btn.style.background = '#1a9940';
   bonusPoints += 500;
   renderBonusBalance();
-  showToast('You joined the challenge! +500 NP awarded 🏆');
+  showToast('Вы присоединились! +500 NP начислено 🏆');
   setTimeout(() => { btn.textContent = 'JOIN CHALLENGE'; btn.style.background = ''; }, 3000);
 });
 

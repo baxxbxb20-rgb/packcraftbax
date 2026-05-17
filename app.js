@@ -460,12 +460,13 @@ function initMap() {
 // ─────────────────────────────────────────────
 // CHECKOUT — Send Order button
 // ─────────────────────────────────────────────
-document.getElementById('pay-btn')?.addEventListener('click', () => {
+document.getElementById('pay-btn')?.addEventListener('click', async () => {
   if (cart.length === 0) { showToast('Your cart is empty — add items first!'); return; }
 
   const nameEl  = document.getElementById('co-name');
   const phoneEl = document.getElementById('co-phone');
   const latEl   = document.getElementById('co-latitude');
+  const locText = document.getElementById('co-location-text');
   let ok = true;
 
   [nameEl, phoneEl].forEach(inp => {
@@ -484,12 +485,50 @@ document.getElementById('pay-btn')?.addEventListener('click', () => {
   if (!ok) { showToast('Please fill all fields and select a location.'); return; }
 
   const snapshot = [...cart];
+  const name     = nameEl?.value.trim() || '—';
+  const phone    = phoneEl?.value.trim() || '—';
+  const location = locText?.value || `${document.getElementById('co-latitude')?.value}, ${document.getElementById('co-longitude')?.value}`;
+  const total    = snapshot.reduce((s, i) => s + i.price, 0);
+
+  // ── Send to Telegram ──
+  const TG_BOT    = 'https://t.me/contespackcraft_bot';
+  const TG_API    = 'https://api.telegram.org/bot';
+  // Replace these with your real token & chat id:
+  const TG_TOKEN   = '8862827587:AAGVS-HykE7tp9gG2nKOI6AERzFUqWf4KkE';
+  const TG_CHAT_ID = '7300813952';
+
+  const lines = snapshot.map(i => `• ${i.emoji} ${i.name} — $${i.price.toFixed(2)}`).join('\n');
+  const msg = [
+    '🛍 НОВЫЙ ЗАКАЗ — Packcraft!',
+    '─────────────────',
+    lines,
+    '─────────────────',
+    `💰 Итого: $${total.toFixed(2)}`,
+    `👤 Имя: ${name}`,
+    `📞 Телефон: ${phone}`,
+    `📍 Локация: ${location}`,
+    `🕐 Время: ${new Date().toLocaleString('ru-RU')}`
+  ].join('\n');
+
+  // Send message silently (don't block UI on failure)
+  fetch(`${TG_API}${TG_TOKEN}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: TG_CHAT_ID, text: msg })
+  }).catch(() => {});
+
+  // Clear cart & go to success
   cart.length   = 0;
   bonusDiscount = 0;
   bonusPoints  += 1250;
   updateCartBadge();
   renderSuccess(snapshot);
   showPage('success');
+
+  // Toast pointing to Telegram
+  setTimeout(() => {
+    showToast('✅ Заказ отправлен в Telegram!');
+  }, 600);
 });
 
 // ─────────────────────────────────────────────

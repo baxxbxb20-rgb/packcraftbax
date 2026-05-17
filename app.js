@@ -1149,7 +1149,7 @@ document.getElementById('bulk-submit-btn')?.addEventListener('click', e => {
 document.getElementById('join-challenge-btn')?.addEventListener('click', e => {
   e.stopPropagation();
   // Open Telegram bot
-  window.open('https://t.me/contespackcraft_bot', '_blank');
+  window.open('https://t.me/pack_craftorder_bot', '_blank');
   const btn = document.getElementById('join-challenge-btn');
   btn.textContent = '✓ JOINED!';
   btn.style.background = '#1a9940';

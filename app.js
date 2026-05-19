@@ -13,13 +13,405 @@ let map = null, mapMarker = null;
 // ─────────────────────────────────────────────
 // LANGUAGE SWITCHER
 // ─────────────────────────────────────────────
+// ─────────────────────────────────────────────
+// LANGUAGE SWITCHER — FULL PAGE TRANSLATION
+// ─────────────────────────────────────────────
 const TRANSLATIONS = {
-  EN: { home:'HOME', backpacks:'BACKPACKS', wallets:'WALLETS', tshirts:'TSHIRTS', hoodies:'HOODIES', bonus:'BONUS', business:'FOR BUSINESS', explore:'EXPLORE THE LAB', startConfig:'START CONFIGURATION', addBackpack:'ADD TO BACKPACK', addWallet:'ADD TO WALLET', addTshirt:'ADD TO TSHIRT', addHoodie:'ADD TO HOODIE', checkout:'CHECKOUT', sendOrder:'SEND ORDER' },
-  RU: { home:'ГЛАВНАЯ', backpacks:'РЮКЗАКИ', wallets:'КОШЕЛЬКИ', tshirts:'ФУТБОЛКИ', hoodies:'ХУДИ', bonus:'БОНУСЫ', business:'ДЛЯ БИЗНЕСА', explore:'ИССЛЕДОВАТЬ', startConfig:'НАЧАТЬ НАСТРОЙКУ', addBackpack:'В КОРЗИНУ', addWallet:'В КОРЗИНУ', addTshirt:'В КОРЗИНУ', addHoodie:'В КОРЗИНУ', checkout:'ОФОРМИТЬ', sendOrder:'ОТПРАВИТЬ ЗАКАЗ' },
-  UZ: { home:'BOSH SAHIFA', backpacks:'RYUKZAKLAR', wallets:'HAMYONLAR', tshirts:'FUTBOLKALAR', hoodies:'HUDILAR', bonus:'BONUSLAR', business:'BIZNES UCHUN', explore:'LABORATORIYA', startConfig:'SOZLASHNI BOSHLASH', addBackpack:'SAVATGA', addWallet:'SAVATGA', addTshirt:'SAVATGA', addHoodie:'SAVATGA', checkout:'BUYURTMA', sendOrder:'YUBORISH' },
-  DE: { home:'STARTSEITE', backpacks:'RUCKSÄCKE', wallets:'GELDBÖRSEN', tshirts:'T-SHIRTS', hoodies:'HOODIES', bonus:'BONUS', business:'FÜR UNTERNEHMEN', explore:'LABOR ERKUNDEN', startConfig:'KONFIGURATION STARTEN', addBackpack:'IN DEN WARENKORB', addWallet:'IN DEN WARENKORB', addTshirt:'IN DEN WARENKORB', addHoodie:'IN DEN WARENKORB', checkout:'KASSE', sendOrder:'BESTELLUNG SENDEN' },
-  FR: { home:'ACCUEIL', backpacks:'SACS À DOS', wallets:'PORTEFEUILLES', tshirts:'T-SHIRTS', hoodies:'SWEATS', bonus:'BONUS', business:'POUR ENTREPRISES', explore:'EXPLORER LE LAB', startConfig:'COMMENCER', addBackpack:'AJOUTER AU PANIER', addWallet:'AJOUTER AU PANIER', addTshirt:'AJOUTER AU PANIER', addHoodie:'AJOUTER AU PANIER', checkout:'COMMANDER', sendOrder:'ENVOYER LA COMMANDE' },
-  ZH: { home:'首页', backpacks:'背包', wallets:'钱包', tshirts:'T恤', hoodies:'卫衣', bonus:'奖励', business:'商业合作', explore:'探索实验室', startConfig:'开始配置', addBackpack:'加入购物车', addWallet:'加入购物车', addTshirt:'加入购物车', addHoodie:'加入购物车', checkout:'结账', sendOrder:'发送订单' }
+  EN: {
+    // Nav
+    home:'HOME', backpacks:'BACKPACKS', wallets:'WALLETS', tshirts:'TSHIRTS',
+    hoodies:'HOODIES', bonus:'BONUS', business:'FOR BUSINESS',
+    // Hero
+    heroTitle:'Your Vision,', heroAccent:'Our Craft',
+    heroSub:'Precision-engineered carry and apparel, customizable down to the last fiber. Designed for the nocturnal, built for the digital frontier.',
+    startConfig:'START CONFIGURATION', exploreLab:'EXPLORE THE LAB',
+    // Modules
+    systemModules:'SYSTEM MODULES', selectBase:'SELECT A BASE TO BEGIN CUSTOMIZATION',
+    customize:'CUSTOMIZE',
+    // Competition
+    competition:'COMPETITIONS',
+    competitionDesc:'Boost your status in the nocturnal frontier. Participate in our ecosystem challenges to earn',
+    competitionBullet1:'Participate in bi-weekly design challenges to showcase your aesthetic vision.',
+    competitionBullet2:'Submit unique customizations and configurations to the public lab.',
+    competitionBullet3:'Stay active on the platform and contribute to the neural forest community.',
+    currentReward:'CURRENT SEASON REWARD', joinChallenge:'JOIN CHALLENGE',
+    // Process
+    masterProcess:'MASTER THE PROCESS',
+    processSub:'Four simple steps to bring your vision to life through our advanced fabrication systems.',
+    step1Label:'STEP ONE', step1Title:'Choose Your Base',
+    step1Desc:'Select your canvas from our core collection: BACKPACKS, WALLETS, TSHIRTS, or HOODIES.',
+    step2Label:'STEP TWO', step2Title:'Customize Your Style',
+    step2Desc:'Select high-performance materials and tactical colorways.',
+    step3Label:'STEP THREE', step3Title:'Personalize',
+    step3Desc:'Apply custom text identification via precision laser etching or embroidery.',
+    step4Label:'FINAL STEP', step4Title:'Add to Bag & Order',
+    step4Desc:'Secure your configuration and initiate the build process in our dark-labs.',
+    startCreating:'START CREATING', leadTime:'AVERAGE LEAD TIME: 14 DAYS',
+    // Configurators
+    materialSystem:'MATERIAL SYSTEM', colorProfile:'COLOR PROFILE',
+    closureHardware:'CLOSURE HARDWARE', laserEngraving:'TEXT ON PRODUCT',
+    textPlaceholder:'Type text to print...', currentConfig:'CURRENT CONFIGURATION',
+    addBackpack:'ADD TO BACKPACK', addWallet:'ADD TO WALLET',
+    addTshirt:'ADD TO TSHIRT', addHoodie:'ADD TO HOODIE',
+    resetDesign:'RESET DESIGN', selectDimensions:'SELECT DIMENSIONS',
+    colorSpectrum:'COLOR SPECTRUM', digitalEmbossing:'TEXT ON PRODUCT',
+    fabricTech:'FABRIC TECHNOLOGY', personalization:'PERSONALIZATION',
+    sizeGuide:'SIZE GUIDE', subtotal:'SUBTOTAL', msrp:'MSRP', estShip:'EST. SHIP',
+    shellMaterial:'SHELL MATERIAL', capacityModules:'CAPACITY MODULES',
+    // Checkout
+    orderSummary:'ORDER SUMMARY', shipping:'Shipping', tax:'Tax',
+    total:'TOTAL', secure:'SECURE ENCRYPTED TERMINAL PROTOCOL ACTIVE',
+    deliveryInfo:'DELIVERY INFORMATION', fullName:'FULL NAME',
+    phoneNumber:'PHONE NUMBER', deliveryLocation:'DELIVERY LOCATION',
+    mapHint:'Click on the map to select your delivery location',
+    locationNone:'📍 Location: Not selected', sendOrder:'SEND ORDER',
+    // Success
+    orderSuccess:'Order Successful!',
+    successMsg:'Your order has been placed and sent to Telegram. Our manager will contact you shortly.',
+    needAssist:'Order sent to Telegram!',
+    assistDesc:'We received your order. Click below to message us directly.',
+    openTg:'✈️ Open Telegram Bot', backHome:'Back to Home →',
+    totalPaid:'TOTAL PAID', estimatedDelivery:'ESTIMATED DELIVERY',
+    // Bonus
+    loyaltyProgram:'NEURAL LOYALTY PROGRAM',
+    bonusTitle:'Your Synthetic Growth Core.',
+    bonusDesc:'Level up your gear acquisition through neural engagement. Every order bridges the gap between hardware and potential.',
+    currentBalance:'CURRENT BALANCE', activeBenefits:'Active Benefits & Exchange',
+    pointExchange:'POINT EXCHANGE', tacticalCycle:'TACTICAL CYCLE',
+    syncProgress:'Sync Progress →', neuralLogs:'Neural Activity Logs',
+    // Business
+    b2bEyebrow:'B2B SOLUTIONS',
+    b2bTitle:'Scale Your Brand.', b2bAccent:'We Handle the Craft.',
+    b2bSub:'Custom gear for teams, agencies, and enterprises.',
+    getQuote:'GET A QUOTE', viewCatalog:'VIEW CATALOG',
+    whyPackcraft:'WHY PACKCRAFT B2B',
+    chooseTier:'Choose your level of scale.',
+    availableBulk:'Available for bulk customization.',
+    // Footer
+    products:'PRODUCTS', support:'SUPPORT', contact:'CONTACT',
+    warrantyInfo:'Warranty Info', leadTimes:'Lead Times',
+    techManuals:'Tech Manuals', configHelp:'Configuration Help',
+    checkout:'CHECKOUT',
+  },
+  RU: {
+    home:'ГЛАВНАЯ', backpacks:'РЮКЗАКИ', wallets:'КОШЕЛЬКИ', tshirts:'ФУТБОЛКИ',
+    hoodies:'ХУДИ', bonus:'БОНУСЫ', business:'ДЛЯ БИЗНЕСА',
+    heroTitle:'Ваше Видение,', heroAccent:'Наше Мастерство',
+    heroSub:'Точно спроектированные сумки и одежда, настраиваемые до последнего волокна. Создано для ночных, построено для цифровых.',
+    startConfig:'НАЧАТЬ НАСТРОЙКУ', exploreLab:'ИССЛЕДОВАТЬ ЛАБ',
+    systemModules:'МОДУЛИ СИСТЕМЫ', selectBase:'ВЫБЕРИТЕ ОСНОВУ ДЛЯ НАСТРОЙКИ',
+    customize:'НАСТРОИТЬ',
+    competition:'КОНКУРСЫ',
+    competitionDesc:'Повышайте свой статус. Участвуйте в соревнованиях и зарабатывайте',
+    competitionBullet1:'Участвуйте в двухнедельных конкурсах дизайна.',
+    competitionBullet2:'Отправляйте уникальные настройки в публичную лабораторию.',
+    competitionBullet3:'Будьте активны и вносите вклад в сообщество.',
+    currentReward:'НАГРАДА СЕЗОНА', joinChallenge:'УЧАСТВОВАТЬ',
+    masterProcess:'ОСВОЙТЕ ПРОЦЕСС',
+    processSub:'Четыре простых шага, чтобы воплотить вашу идею в жизнь.',
+    step1Label:'ШАГ ПЕРВЫЙ', step1Title:'Выберите основу',
+    step1Desc:'Выберите из нашей коллекции: РЮКЗАКИ, КОШЕЛЬКИ, ФУТБОЛКИ или ХУДИ.',
+    step2Label:'ШАГ ВТОРОЙ', step2Title:'Настройте стиль',
+    step2Desc:'Выберите материалы и цветовые решения.',
+    step3Label:'ШАГ ТРЕТИЙ', step3Title:'Персонализируйте',
+    step3Desc:'Добавьте текст через лазерную гравировку или вышивку.',
+    step4Label:'ФИНАЛЬНЫЙ ШАГ', step4Title:'Добавить в корзину',
+    step4Desc:'Оформите заказ и запустите производство.',
+    startCreating:'НАЧАТЬ СОЗДАНИЕ', leadTime:'СРЕДНЕЕ ВРЕМЯ: 14 ДНЕЙ',
+    materialSystem:'МАТЕРИАЛ', colorProfile:'ЦВЕТ',
+    closureHardware:'ЗАСТЁЖКИ', laserEngraving:'ТЕКСТ НА ТОВАРЕ',
+    textPlaceholder:'Введите текст для печати...', currentConfig:'ТЕКУЩАЯ КОНФИГУРАЦИЯ',
+    addBackpack:'В КОРЗИНУ', addWallet:'В КОРЗИНУ',
+    addTshirt:'В КОРЗИНУ', addHoodie:'В КОРЗИНУ',
+    resetDesign:'СБРОСИТЬ ДИЗАЙН', selectDimensions:'ВЫБЕРИТЕ РАЗМЕР',
+    colorSpectrum:'ЦВЕТОВАЯ ГАММА', digitalEmbossing:'ТЕКСТ НА ТОВАРЕ',
+    fabricTech:'ТКАНЬ', personalization:'ПЕРСОНАЛИЗАЦИЯ',
+    sizeGuide:'РАЗМЕРНАЯ СЕТКА', subtotal:'ИТОГО', msrp:'ЦЕНА', estShip:'ДОСТАВКА',
+    shellMaterial:'МАТЕРИАЛ КОРПУСА', capacityModules:'ЁМКОСТЬ',
+    orderSummary:'СОСТАВ ЗАКАЗА', shipping:'Доставка', tax:'Налог',
+    total:'ИТОГО', secure:'БЕЗОПАСНОЕ ЗАШИФРОВАННОЕ СОЕДИНЕНИЕ АКТИВНО',
+    deliveryInfo:'ИНФОРМАЦИЯ О ДОСТАВКЕ', fullName:'ПОЛНОЕ ИМЯ',
+    phoneNumber:'НОМЕР ТЕЛЕФОНА', deliveryLocation:'АДРЕС ДОСТАВКИ',
+    mapHint:'Нажмите на карту чтобы выбрать место доставки',
+    locationNone:'📍 Локация: не выбрана', sendOrder:'ОТПРАВИТЬ ЗАКАЗ',
+    orderSuccess:'Заказ оформлен!',
+    successMsg:'Ваш заказ принят и отправлен в Telegram. Менеджер свяжется с вами в ближайшее время.',
+    needAssist:'Заказ отправлен в Telegram!',
+    assistDesc:'Мы получили ваш заказ. Нажмите ниже чтобы написать нам напрямую.',
+    openTg:'✈️ Открыть Telegram бот', backHome:'На главную →',
+    totalPaid:'ИТОГО ОПЛАЧЕНО', estimatedDelivery:'ОЖИДАЕМАЯ ДОСТАВКА',
+    loyaltyProgram:'ПРОГРАММА ЛОЯЛЬНОСТИ',
+    bonusTitle:'Ваше Синтетическое Ядро Роста.',
+    bonusDesc:'Прокачивайте свой статус. Каждый заказ приближает вас к новым уровням.',
+    currentBalance:'ТЕКУЩИЙ БАЛАНС', activeBenefits:'Активные бонусы и обмен',
+    pointExchange:'ОБМЕН БАЛЛОВ', tacticalCycle:'ТАКТИЧЕСКИЙ ЦИКЛ',
+    syncProgress:'Синхронизировать →', neuralLogs:'Журнал активности',
+    b2bEyebrow:'B2B РЕШЕНИЯ',
+    b2bTitle:'Масштабируйте Бренд.', b2bAccent:'Мы Сделаем Всё.',
+    b2bSub:'Корпоративная продукция для команд, агентств и предприятий.',
+    getQuote:'ПОЛУЧИТЬ ЦЕНУ', viewCatalog:'КАТАЛОГ',
+    whyPackcraft:'ПОЧЕМУ PACKCRAFT B2B',
+    chooseTier:'Выберите уровень масштаба.',
+    availableBulk:'Доступно для оптовых заказов.',
+    products:'ПРОДУКТЫ', support:'ПОДДЕРЖКА', contact:'КОНТАКТЫ',
+    warrantyInfo:'Гарантия', leadTimes:'Сроки', techManuals:'Руководства',
+    configHelp:'Помощь с настройкой', checkout:'ОФОРМИТЬ',
+  },
+  UZ: {
+    home:'BOSH SAHIFA', backpacks:'RYUKZAKLAR', wallets:'HAMYONLAR',
+    tshirts:'FUTBOLKALAR', hoodies:'HUDILAR', bonus:'BONUSLAR', business:'BIZNES UCHUN',
+    heroTitle:'Sizning Orzuingiz,', heroAccent:'Bizning Mahoratimiz',
+    heroSub:'Aniq ishlab chiqarilgan sumkalar va kiyimlar, oxirgi ipgacha moslashtirilgan.',
+    startConfig:'SOZLASHNI BOSHLASH', exploreLab:'LABORATORIYANI OCHISH',
+    systemModules:'TIZIM MODULLARI', selectBase:'ASOSNI TANLANG',
+    customize:'SOZLASH',
+    competition:'TANLOVLAR',
+    competitionDesc:'Statusingizni oshiring. Musobakalarda ishtirok eting va',
+    competitionBullet1:'Ikki haftada bir dizayn musobaqalarida qatnashing.',
+    competitionBullet2:'Noyob konfiguratsiyalarni ommaviy laboratoriyaga yuboring.',
+    competitionBullet3:'Faol bo\'ling va hamjamiyatga hissa qo\'shing.',
+    currentReward:'MAVSUM MUKOFOTI', joinChallenge:'QATNASHISH',
+    masterProcess:'JARAYONNI O\'RGANING',
+    processSub:'To\'rtta oddiy qadam bilan g\'oyangizni hayotga tatbiq eting.',
+    step1Label:'BIRINCHI QADAM', step1Title:'Asosni tanlang',
+    step1Desc:'To\'plamimizdan tanlang: RYUKZAKLAR, HAMYONLAR, FUTBOLKALAR yoki HUDILAR.',
+    step2Label:'IKKINCHI QADAM', step2Title:'Uslubni sozlang',
+    step2Desc:'Materiallar va ranglarni tanlang.',
+    step3Label:'UCHINCHI QADAM', step3Title:'Shaxsiylashtirish',
+    step3Desc:'Lazer o\'ymakorlik yoki kashtado\'zlik orqali matn qo\'shing.',
+    step4Label:'OXIRGI QADAM', step4Title:'Savatga qo\'shish',
+    step4Desc:'Buyurtmangizni rasmiylashtiring.',
+    startCreating:'YARATISHNI BOSHLASH', leadTime:'O\'RTACHA MUDDAT: 14 KUN',
+    materialSystem:'MATERIAL', colorProfile:'RANG',
+    closureHardware:'QULF', laserEngraving:'MAHSULOTDAGI MATN',
+    textPlaceholder:'Bosib chiqarish uchun matn kiriting...', currentConfig:'JORIY KONFIGURATSIYA',
+    addBackpack:'SAVATGA', addWallet:'SAVATGA', addTshirt:'SAVATGA', addHoodie:'SAVATGA',
+    resetDesign:'DIZAYNNI TIKLASH', selectDimensions:'O\'LCHAM TANLANG',
+    colorSpectrum:'RANGLAR', digitalEmbossing:'MAHSULOTDAGI MATN',
+    fabricTech:'MATO', personalization:'SHAXSIYLASHTIRISH',
+    sizeGuide:'O\'LCHAM JADVALI', subtotal:'JAMI', msrp:'NARX', estShip:'YETKAZIB BERISH',
+    shellMaterial:'KORPUS MATERIALI', capacityModules:'HAJM',
+    orderSummary:'BUYURTMA TARKIBI', shipping:'Yetkazib berish', tax:'Soliq',
+    total:'JAMI', secure:'XAVFSIZ SHIFRLANGAN ULANISH FAOL',
+    deliveryInfo:'YETKAZIB BERISH MA\'LUMOTI', fullName:'TO\'LIQ ISM',
+    phoneNumber:'TELEFON RAQAMI', deliveryLocation:'YETKAZIB BERISH JOYI',
+    mapHint:'Yetkazib berish joyini tanlash uchun xaritani bosing',
+    locationNone:'📍 Joylashuv: tanlanmagan', sendOrder:'BUYURTMA YUBORISH',
+    orderSuccess:'Buyurtma muvaffaqiyatli!',
+    successMsg:'Buyurtmangiz qabul qilindi va Telegramga yuborildi.',
+    needAssist:'Buyurtma Telegramga yuborildi!',
+    assistDesc:'Buyurtmangizni oldik. To\'g\'ridan-to\'g\'ri yozish uchun bosing.',
+    openTg:'✈️ Telegram botini ochish', backHome:'Bosh sahifaga →',
+    totalPaid:'JAMI TO\'LANGAN', estimatedDelivery:'TAXMINIY YETKAZIB BERISH',
+    loyaltyProgram:'SODIQLIK DASTURI',
+    bonusTitle:'Sizning Sintetik O\'sish Yadroyingiz.',
+    bonusDesc:'Statusingizni oshiring. Har bir buyurtma yangi darajalarga yaqinlashtiradi.',
+    currentBalance:'JORIY BALANS', activeBenefits:'Faol bonuslar va almashtirish',
+    pointExchange:'BALL ALMASHTIRISH', tacticalCycle:'TAKTIK SIKL',
+    syncProgress:'Sinxronlash →', neuralLogs:'Faoliyat jurnali',
+    b2bEyebrow:'B2B YECHIMLAR',
+    b2bTitle:'Brendni Kengaytiring.', b2bAccent:'Biz Hamma Narsani Qilamiz.',
+    b2bSub:'Jamoalar, agentliklar va korxonalar uchun korporativ mahsulotlar.',
+    getQuote:'NARX OLISH', viewCatalog:'KATALOG',
+    whyPackcraft:'NIMA UCHUN PACKCRAFT B2B',
+    chooseTier:'Miqyos darajasini tanlang.',
+    availableBulk:'Ulgurji buyurtmalar uchun mavjud.',
+    products:'MAHSULOTLAR', support:'YORDAM', contact:'ALOQA',
+    warrantyInfo:'Kafolat', leadTimes:'Muddatlar', techManuals:'Qo\'llanmalar',
+    configHelp:'Sozlash yordami', checkout:'BUYURTMA',
+  },
+  DE: {
+    home:'STARTSEITE', backpacks:'RUCKSÄCKE', wallets:'GELDBÖRSEN',
+    tshirts:'T-SHIRTS', hoodies:'HOODIES', bonus:'BONUS', business:'FÜR UNTERNEHMEN',
+    heroTitle:'Ihre Vision,', heroAccent:'Unser Handwerk',
+    heroSub:'Präzisionsgefertigte Taschen und Kleidung, bis zur letzten Faser anpassbar.',
+    startConfig:'KONFIGURATION STARTEN', exploreLab:'LABOR ERKUNDEN',
+    systemModules:'SYSTEMMODULE', selectBase:'BASIS AUSWÄHLEN',
+    customize:'ANPASSEN',
+    competition:'WETTBEWERBE',
+    competitionDesc:'Steigern Sie Ihren Status. Nehmen Sie an Challenges teil und verdienen Sie',
+    competitionBullet1:'Nehmen Sie an zweiwöchentlichen Design-Challenges teil.',
+    competitionBullet2:'Reichen Sie einzigartige Konfigurationen ein.',
+    competitionBullet3:'Bleiben Sie aktiv und tragen Sie zur Community bei.',
+    currentReward:'SAISONBELOHNUNG', joinChallenge:'TEILNEHMEN',
+    masterProcess:'DEN PROZESS MEISTERN',
+    processSub:'Vier einfache Schritte, um Ihre Vision zum Leben zu erwecken.',
+    step1Label:'SCHRITT EINS', step1Title:'Basis wählen',
+    step1Desc:'Wählen Sie aus unserer Kollektion: RUCKSÄCKE, GELDBÖRSEN, T-SHIRTS oder HOODIES.',
+    step2Label:'SCHRITT ZWEI', step2Title:'Stil anpassen',
+    step2Desc:'Materialien und Farbvarianten auswählen.',
+    step3Label:'SCHRITT DREI', step3Title:'Personalisieren',
+    step3Desc:'Text per Lasergravur oder Stickerei hinzufügen.',
+    step4Label:'LETZTER SCHRITT', step4Title:'In den Warenkorb',
+    step4Desc:'Bestellung aufgeben und Produktion starten.',
+    startCreating:'ERSTELLEN STARTEN', leadTime:'DURCHSCHNITTLICHE LIEFERZEIT: 14 TAGE',
+    materialSystem:'MATERIAL', colorProfile:'FARBE',
+    closureHardware:'VERSCHLUSS', laserEngraving:'TEXT AUF PRODUKT',
+    textPlaceholder:'Text zum Drucken eingeben...', currentConfig:'AKTUELLE KONFIGURATION',
+    addBackpack:'IN DEN WARENKORB', addWallet:'IN DEN WARENKORB',
+    addTshirt:'IN DEN WARENKORB', addHoodie:'IN DEN WARENKORB',
+    resetDesign:'DESIGN ZURÜCKSETZEN', selectDimensions:'GRÖSSE WÄHLEN',
+    colorSpectrum:'FARBSPEKTRUM', digitalEmbossing:'TEXT AUF PRODUKT',
+    fabricTech:'STOFF', personalization:'PERSONALISIERUNG',
+    sizeGuide:'GRÖSSENTABELLE', subtotal:'ZWISCHENSUMME', msrp:'PREIS', estShip:'VERSAND',
+    shellMaterial:'GEHÄUSEMATERIAL', capacityModules:'KAPAZITÄT',
+    orderSummary:'BESTELLÜBERSICHT', shipping:'Versand', tax:'Steuer',
+    total:'GESAMT', secure:'SICHERES VERSCHLÜSSELTES TERMINAL AKTIV',
+    deliveryInfo:'LIEFERINFORMATIONEN', fullName:'VOLLSTÄNDIGER NAME',
+    phoneNumber:'TELEFONNUMMER', deliveryLocation:'LIEFERADRESSE',
+    mapHint:'Klicken Sie auf die Karte, um den Lieferort zu wählen',
+    locationNone:'📍 Standort: nicht ausgewählt', sendOrder:'BESTELLUNG SENDEN',
+    orderSuccess:'Bestellung erfolgreich!',
+    successMsg:'Ihre Bestellung wurde aufgenommen und an Telegram gesendet.',
+    needAssist:'Bestellung an Telegram gesendet!',
+    assistDesc:'Wir haben Ihre Bestellung erhalten. Klicken Sie unten, um uns direkt zu schreiben.',
+    openTg:'✈️ Telegram Bot öffnen', backHome:'Zur Startseite →',
+    totalPaid:'GESAMT BEZAHLT', estimatedDelivery:'VORAUSSICHTLICHE LIEFERUNG',
+    loyaltyProgram:'TREUEPROGRAMM',
+    bonusTitle:'Ihr Synthetischer Wachstumskern.',
+    bonusDesc:'Steigern Sie Ihren Status. Jede Bestellung bringt Sie näher an neue Levels.',
+    currentBalance:'AKTUELLES GUTHABEN', activeBenefits:'Aktive Vorteile & Austausch',
+    pointExchange:'PUNKTETAUSCH', tacticalCycle:'TAKTISCHER ZYKLUS',
+    syncProgress:'Fortschritt sync →', neuralLogs:'Aktivitätsprotokoll',
+    b2bEyebrow:'B2B LÖSUNGEN',
+    b2bTitle:'Skalieren Sie Ihre Marke.', b2bAccent:'Wir übernehmen das Handwerk.',
+    b2bSub:'Firmenware für Teams, Agenturen und Unternehmen.',
+    getQuote:'ANGEBOT EINHOLEN', viewCatalog:'KATALOG',
+    whyPackcraft:'WARUM PACKCRAFT B2B',
+    chooseTier:'Wählen Sie Ihr Skalierungsniveau.',
+    availableBulk:'Für Großbestellungen verfügbar.',
+    products:'PRODUKTE', support:'SUPPORT', contact:'KONTAKT',
+    warrantyInfo:'Garantie', leadTimes:'Lieferzeiten', techManuals:'Handbücher',
+    configHelp:'Konfigurationshilfe', checkout:'KASSE',
+  },
+  FR: {
+    home:'ACCUEIL', backpacks:'SACS À DOS', wallets:'PORTEFEUILLES',
+    tshirts:'T-SHIRTS', hoodies:'SWEATS', bonus:'BONUS', business:'POUR ENTREPRISES',
+    heroTitle:'Votre Vision,', heroAccent:'Notre Savoir-Faire',
+    heroSub:'Équipements et vêtements de précision, personnalisables jusqu\'à la dernière fibre.',
+    startConfig:'COMMENCER', exploreLab:'EXPLORER LE LAB',
+    systemModules:'MODULES SYSTÈME', selectBase:'CHOISIR UNE BASE',
+    customize:'PERSONNALISER',
+    competition:'CONCOURS',
+    competitionDesc:'Boostez votre statut. Participez aux défis et gagnez',
+    competitionBullet1:'Participez aux défis de design bihebdomadaires.',
+    competitionBullet2:'Soumettez des configurations uniques au lab public.',
+    competitionBullet3:'Restez actif et contribuez à la communauté.',
+    currentReward:'RÉCOMPENSE DE SAISON', joinChallenge:'PARTICIPER',
+    masterProcess:'MAÎTRISER LE PROCESSUS',
+    processSub:'Quatre étapes simples pour donner vie à votre vision.',
+    step1Label:'ÉTAPE UNE', step1Title:'Choisissez votre base',
+    step1Desc:'Choisissez dans notre collection : SACS À DOS, PORTEFEUILLES, T-SHIRTS ou SWEATS.',
+    step2Label:'ÉTAPE DEUX', step2Title:'Personnalisez votre style',
+    step2Desc:'Sélectionnez les matériaux et les coloris.',
+    step3Label:'ÉTAPE TROIS', step3Title:'Personnalisez',
+    step3Desc:'Ajoutez du texte par gravure laser ou broderie.',
+    step4Label:'ÉTAPE FINALE', step4Title:'Ajouter au panier',
+    step4Desc:'Finalisez votre commande et lancez la production.',
+    startCreating:'COMMENCER À CRÉER', leadTime:'DÉLAI MOYEN : 14 JOURS',
+    materialSystem:'MATÉRIAU', colorProfile:'COULEUR',
+    closureHardware:'FERMETURE', laserEngraving:'TEXTE SUR PRODUIT',
+    textPlaceholder:'Tapez le texte à imprimer...', currentConfig:'CONFIGURATION ACTUELLE',
+    addBackpack:'AJOUTER AU PANIER', addWallet:'AJOUTER AU PANIER',
+    addTshirt:'AJOUTER AU PANIER', addHoodie:'AJOUTER AU PANIER',
+    resetDesign:'RÉINITIALISER', selectDimensions:'CHOISIR LA TAILLE',
+    colorSpectrum:'SPECTRE DE COULEURS', digitalEmbossing:'TEXTE SUR PRODUIT',
+    fabricTech:'TISSU', personalization:'PERSONNALISATION',
+    sizeGuide:'GUIDE DES TAILLES', subtotal:'SOUS-TOTAL', msrp:'PRIX', estShip:'LIVRAISON',
+    shellMaterial:'MATÉRIAU DE COQUE', capacityModules:'CAPACITÉ',
+    orderSummary:'RÉCAPITULATIF', shipping:'Livraison', tax:'Taxe',
+    total:'TOTAL', secure:'TERMINAL SÉCURISÉ ET CHIFFRÉ ACTIF',
+    deliveryInfo:'INFORMATIONS DE LIVRAISON', fullName:'NOM COMPLET',
+    phoneNumber:'NUMÉRO DE TÉLÉPHONE', deliveryLocation:'ADRESSE DE LIVRAISON',
+    mapHint:'Cliquez sur la carte pour choisir le lieu de livraison',
+    locationNone:'📍 Lieu : non sélectionné', sendOrder:'ENVOYER LA COMMANDE',
+    orderSuccess:'Commande réussie !',
+    successMsg:'Votre commande a été reçue et envoyée sur Telegram.',
+    needAssist:'Commande envoyée sur Telegram !',
+    assistDesc:'Nous avons reçu votre commande. Cliquez ci-dessous pour nous écrire directement.',
+    openTg:'✈️ Ouvrir le bot Telegram', backHome:'Retour à l\'accueil →',
+    totalPaid:'TOTAL PAYÉ', estimatedDelivery:'LIVRAISON ESTIMÉE',
+    loyaltyProgram:'PROGRAMME DE FIDÉLITÉ',
+    bonusTitle:'Votre Noyau de Croissance Synthétique.',
+    bonusDesc:'Améliorez votre statut. Chaque commande vous rapproche de nouveaux niveaux.',
+    currentBalance:'SOLDE ACTUEL', activeBenefits:'Avantages actifs & échange',
+    pointExchange:'ÉCHANGE DE POINTS', tacticalCycle:'CYCLE TACTIQUE',
+    syncProgress:'Synchroniser →', neuralLogs:'Journal d\'activité',
+    b2bEyebrow:'SOLUTIONS B2B',
+    b2bTitle:'Faites Évoluer Votre Marque.', b2bAccent:'Nous Gérons le Reste.',
+    b2bSub:'Équipements corporate pour équipes, agences et entreprises.',
+    getQuote:'OBTENIR UN DEVIS', viewCatalog:'CATALOGUE',
+    whyPackcraft:'POURQUOI PACKCRAFT B2B',
+    chooseTier:'Choisissez votre niveau de déploiement.',
+    availableBulk:'Disponible en commandes en gros.',
+    products:'PRODUITS', support:'SUPPORT', contact:'CONTACT',
+    warrantyInfo:'Garantie', leadTimes:'Délais', techManuals:'Manuels',
+    configHelp:'Aide à la configuration', checkout:'COMMANDER',
+  },
+  ZH: {
+    home:'首页', backpacks:'背包', wallets:'钱包', tshirts:'T恤',
+    hoodies:'卫衣', bonus:'奖励', business:'商业合作',
+    heroTitle:'您的愿景，', heroAccent:'我们的工艺',
+    heroSub:'精密制造的背包和服装，可定制到最后一根纤维。',
+    startConfig:'开始配置', exploreLab:'探索实验室',
+    systemModules:'系统模块', selectBase:'选择基础产品开始定制',
+    customize:'定制',
+    competition:'比赛',
+    competitionDesc:'提升您的地位。参加生态系统挑战并赚取',
+    competitionBullet1:'参加两周一次的设计挑战。',
+    competitionBullet2:'向公共实验室提交独特配置。',
+    competitionBullet3:'保持活跃并为社区做贡献。',
+    currentReward:'本季奖励', joinChallenge:'参加挑战',
+    masterProcess:'掌握流程',
+    processSub:'四个简单步骤，将您的愿景变为现实。',
+    step1Label:'第一步', step1Title:'选择基础',
+    step1Desc:'从我们的核心系列中选择：背包、钱包、T恤或卫衣。',
+    step2Label:'第二步', step2Title:'定制风格',
+    step2Desc:'选择高性能材料和战术配色。',
+    step3Label:'第三步', step3Title:'个性化',
+    step3Desc:'通过激光雕刻或刺绣添加自定义文字。',
+    step4Label:'最后一步', step4Title:'加入购物车',
+    step4Desc:'确认配置并启动生产流程。',
+    startCreating:'开始创建', leadTime:'平均交货时间：14天',
+    materialSystem:'材料系统', colorProfile:'颜色',
+    closureHardware:'扣件', laserEngraving:'产品上的文字',
+    textPlaceholder:'输入要打印的文字...', currentConfig:'当前配置',
+    addBackpack:'加入购物车', addWallet:'加入购物车',
+    addTshirt:'加入购物车', addHoodie:'加入购物车',
+    resetDesign:'重置设计', selectDimensions:'选择尺码',
+    colorSpectrum:'颜色系列', digitalEmbossing:'产品上的文字',
+    fabricTech:'面料技术', personalization:'个性化',
+    sizeGuide:'尺码指南', subtotal:'小计', msrp:'价格', estShip:'运输',
+    shellMaterial:'外壳材料', capacityModules:'容量',
+    orderSummary:'订单摘要', shipping:'运费', tax:'税费',
+    total:'总计', secure:'安全加密终端协议已激活',
+    deliveryInfo:'配送信息', fullName:'全名',
+    phoneNumber:'电话号码', deliveryLocation:'配送地址',
+    mapHint:'点击地图选择配送地点',
+    locationNone:'📍 地点：未选择', sendOrder:'发送订单',
+    orderSuccess:'订单成功！',
+    successMsg:'您的订单已收到并发送至Telegram。我们的客服将尽快联系您。',
+    needAssist:'订单已发送至Telegram！',
+    assistDesc:'我们已收到您的订单。点击下方直接联系我们。',
+    openTg:'✈️ 打开Telegram机器人', backHome:'返回首页 →',
+    totalPaid:'已付总额', estimatedDelivery:'预计配送时间',
+    loyaltyProgram:'神经忠诚计划',
+    bonusTitle:'您的合成成长核心。',
+    bonusDesc:'通过神经参与提升您的装备获取。每一笔订单都在拉近硬件与潜力的距离。',
+    currentBalance:'当前余额', activeBenefits:'活跃权益与兑换',
+    pointExchange:'积分兑换', tacticalCycle:'战术周期',
+    syncProgress:'同步进度 →', neuralLogs:'神经活动记录',
+    b2bEyebrow:'B2B解决方案',
+    b2bTitle:'扩展您的品牌。', b2bAccent:'我们负责工艺。',
+    b2bSub:'为团队、代理机构和企业提供定制装备。',
+    getQuote:'获取报价', viewCatalog:'查看目录',
+    whyPackcraft:'为什么选择PACKCRAFT B2B',
+    chooseTier:'选择您的规模级别。',
+    availableBulk:'可批量定制。',
+    products:'产品', support:'支持', contact:'联系',
+    warrantyInfo:'保修信息', leadTimes:'交货时间', techManuals:'技术手册',
+    configHelp:'配置帮助', checkout:'结账',
+  }
 };
 
 let currentLang = 'EN';
@@ -48,11 +440,21 @@ document.querySelectorAll('.lang-option').forEach(opt => {
   });
 });
 
+function setText(sel, text) {
+  document.querySelectorAll(sel).forEach(el => { if (el) el.textContent = text; });
+}
+function setPlaceholder(id, text) {
+  const el = document.getElementById(id);
+  if (el) el.placeholder = text;
+}
+function setHtml(sel, html) {
+  document.querySelectorAll(sel).forEach(el => { if (el) el.innerHTML = html; });
+}
+
 function applyLanguage(lang) {
   const t = TRANSLATIONS[lang] || TRANSLATIONS.EN;
 
-  // Nav labels
-  const navMap = { home:'home', backpacks:'backpacks', wallets:'wallets', tshirts:'tshirts', hoodies:'hoodies', bonus:'bonus', business:'business' };
+  // ── Nav ──
   document.querySelectorAll('.nav-link .nav-label').forEach(label => {
     const page = label.closest('[data-page]')?.dataset.page;
     if (page && t[page]) label.textContent = t[page];
@@ -61,21 +463,161 @@ function applyLanguage(lang) {
     const page = link.dataset.page;
     if (page && t[page]) link.textContent = t[page];
   });
+  document.querySelectorAll('.bottom-nav-label').forEach(label => {
+    const page = label.closest('[data-page]')?.dataset.page;
+    if (page && t[page]) label.textContent = t[page].split(' ')[0];
+  });
 
-  // Buttons
+  // ── Hero ──
+  const heroTitle = document.querySelector('.hero-title');
+  if (heroTitle) heroTitle.innerHTML = `${t.heroTitle}<br><span class="hero-title-accent">${t.heroAccent}</span>`;
+  setText('.hero-sub', t.heroSub);
+  document.querySelectorAll('.btn-primary[data-page="backpacks"]').forEach(b => {
+    if (!b.closest('.config-panel') && !b.closest('.biz-catalog-card') && !b.closest('.biz-tier-card') && !b.closest('.process-cta') && !b.closest('.mobile-menu-footer')) {
+      b.textContent = t.startConfig;
+    }
+  });
+  const exploreBtn = document.getElementById('explore-lab-btn');
+  if (exploreBtn) exploreBtn.textContent = t.exploreLab;
+
+  // ── Modules ──
+  setText('.section-title', t.systemModules);
+  setText('.section-sub', t.selectBase);
+  document.querySelectorAll('.btn-customize').forEach(b => b.textContent = t.customize);
+
+  // ── Competition ──
+  setText('.competition-title', t.competition);
+  const compDesc = document.querySelector('.competition-desc');
+  if (compDesc) compDesc.innerHTML = `${t.competitionDesc} <span class="competition-highlight">NEON_POINTS</span>`;
+  const bullets = document.querySelectorAll('.competition-list li');
+  const bulletTexts = [t.competitionBullet1, t.competitionBullet2, t.competitionBullet3];
+  bullets.forEach((li, i) => {
+    const bullet = li.querySelector('.comp-bullet');
+    if (bullet) li.innerHTML = `<span class="comp-bullet">${bullet.textContent}</span> ${bulletTexts[i]}`;
+  });
+  setText('.reward-label', t.currentReward);
+  const joinBtn = document.getElementById('join-challenge-btn');
+  if (joinBtn) joinBtn.textContent = t.joinChallenge;
+
+  // ── Process ──
+  setText('.process-big-title', t.masterProcess);
+  setText('.process-sub', t.processSub);
+  const stepLabels = document.querySelectorAll('.step-label');
+  const stepTitles = document.querySelectorAll('.step-title');
+  const stepDescs  = document.querySelectorAll('.step-desc');
+  const labelKeys  = ['step1Label','step2Label','step3Label','step4Label'];
+  const titleKeys  = ['step1Title','step2Title','step3Title','step4Title'];
+  const descKeys   = ['step1Desc','step2Desc','step3Desc','step4Desc'];
+  stepLabels.forEach((el, i) => { if (labelKeys[i]) el.textContent = t[labelKeys[i]]; });
+  stepTitles.forEach((el, i) => { if (titleKeys[i]) el.textContent = t[titleKeys[i]]; });
+  stepDescs.forEach((el,  i) => { if (descKeys[i])  el.textContent = t[descKeys[i]]; });
+  document.querySelectorAll('.process-cta .btn-primary').forEach(b => b.textContent = t.startCreating);
+  setText('.lead-time', t.leadTime);
+
+  // ── Configurator labels ──
+  document.querySelectorAll('.config-label').forEach(label => {
+    const txt = label.textContent.trim().toUpperCase();
+    const map = {
+      'MATERIAL SYSTEM': t.materialSystem, 'SHELL MATERIAL': t.shellMaterial,
+      'COLOR PROFILE': t.colorProfile, 'COLOR SPECTRUM': t.colorSpectrum,
+      'CLOSURE HARDWARE': t.closureHardware, 'CAPACITY MODULES': t.capacityModules,
+      'LASER ENGRAVING': t.laserEngraving, 'TEXT ON PRODUCT': t.laserEngraving,
+      'DIGITAL EMBOSSING': t.digitalEmbossing,
+      'FABRIC TECHNOLOGY': t.fabricTech, 'PERSONALIZATION': t.personalization,
+      'SIZE GUIDE': t.sizeGuide, 'SELECT DIMENSIONS': t.selectDimensions,
+      'CURRENT CONFIGURATION': t.currentConfig,
+      'MSRP': t.msrp, 'EST. SHIP': t.estShip, 'SUBTOTAL': t.subtotal,
+    };
+    if (map[txt]) label.textContent = map[txt];
+  });
+
+  // ── Add to cart buttons ──
   const btnMap = {
     'bp-add': t.addBackpack, 'wl-add': t.addWallet,
     'ts-add': t.addTshirt,  'hd-add': t.addHoodie,
-    'pay-btn': t.sendOrder, 'toast-checkout': t.checkout
+    'pay-btn': t.sendOrder, 'toast-checkout': t.checkout,
   };
   Object.entries(btnMap).forEach(([id, text]) => {
     const el = document.getElementById(id);
     if (el) el.textContent = text;
   });
+  document.querySelectorAll('.btn-reset').forEach(b => b.textContent = t.resetDesign);
 
-  // Hero buttons
-  document.querySelectorAll('[data-page="backpacks"].btn-primary').forEach(b => b.textContent = t.startConfig);
-  document.querySelectorAll('[data-page="process"].btn-ghost').forEach(b => b.textContent = t.explore);
+  // ── Text inputs placeholders ──
+  document.querySelectorAll('.text-live-input').forEach(inp => {
+    inp.placeholder = t.textPlaceholder;
+  });
+
+  // ── Checkout ──
+  document.querySelectorAll('.checkout-section-title').forEach(el => {
+    if (el.textContent.includes('ORDER') || el.textContent.includes('ЗАКАЗ') || el.textContent.includes('BUYURTMA') || el.textContent.includes('BESTELLUNG') || el.textContent.includes('訂單') || el.textContent.includes('RÉCAPITULATIF')) {
+      el.textContent = t.orderSummary;
+    }
+    if (el.textContent.includes('DELIVERY') || el.textContent.includes('ДОСТАВК') || el.textContent.includes('YETKAZIB') || el.textContent.includes('LIVRAISON') || el.textContent.includes('LIEFERINFORMATION') || el.textContent.includes('配送')) {
+      el.textContent = t.deliveryInfo;
+    }
+  });
+  document.querySelectorAll('.form-label').forEach(label => {
+    const txt = label.textContent.trim().toUpperCase();
+    if (txt === 'FULL NAME' || txt === 'ПОЛНОЕ ИМЯ' || txt === 'TO\'LIQ ISM' || txt === 'VOLLSTÄNDIGER NAME' || txt === 'NOM COMPLET' || txt === '全名') label.textContent = t.fullName;
+    if (txt === 'PHONE NUMBER' || txt === 'НОМЕР ТЕЛЕФОНА' || txt === 'TELEFON RAQAMI' || txt === 'TELEFONNUMMER' || txt === 'NUMÉRO DE TÉLÉPHONE' || txt === '电话号码') label.textContent = t.phoneNumber;
+    if (txt.includes('DELIVERY LOCATION') || txt.includes('АДРЕС') || txt.includes('JOYI') || txt.includes('LIEFERADRESSE') || txt.includes('LIVRAISON') || txt.includes('配送地址')) label.textContent = t.deliveryLocation;
+  });
+  document.querySelectorAll('.form-hint').forEach(el => el.textContent = t.mapHint);
+  const locDisp = document.getElementById('location-display');
+  if (locDisp && !document.getElementById('co-latitude')?.value) locDisp.textContent = t.locationNone;
+  document.querySelectorAll('.subtotal-row span:first-child').forEach(el => {
+    if (el.textContent.trim() === 'Shipping' || el.textContent.trim() === 'Доставка' || el.textContent.trim() === 'Versand' || el.textContent.trim() === 'Livraison' || el.textContent.trim() === '运费' || el.textContent.trim() === 'Yetkazib berish') el.textContent = t.shipping;
+    if (el.textContent.trim() === 'Tax' || el.textContent.trim() === 'Налог' || el.textContent.trim() === 'Soliq' || el.textContent.trim() === 'Steuer' || el.textContent.trim() === 'Taxe' || el.textContent.trim() === '税费') el.textContent = t.tax;
+  });
+  setText('.secure-badge span:last-child', t.secure);
+  const checkTotal = document.querySelector('.checkout-total span:first-child');
+  if (checkTotal) checkTotal.textContent = t.total;
+
+  // ── Success ──
+  setText('.success-title', t.orderSuccess);
+  setText('.success-msg', t.successMsg);
+  document.querySelectorAll('.success-support strong').forEach(el => el.textContent = t.needAssist);
+  document.querySelectorAll('.success-support p').forEach(el => el.textContent = t.assistDesc);
+  document.querySelectorAll('.tg-success-btn').forEach(el => el.innerHTML = t.openTg);
+  document.querySelectorAll('.btn-ghost-lg[data-page="home"]').forEach(el => el.textContent = t.backHome);
+  document.querySelectorAll('.config-price-label').forEach(el => {
+    if (el.textContent.trim() === 'TOTAL PAID' || el.textContent.trim() === 'ИТОГО ОПЛАЧЕНО') el.textContent = t.totalPaid;
+    if (el.textContent.trim() === 'ESTIMATED DELIVERY' || el.textContent.trim() === 'ОЖИДАЕМАЯ ДОСТАВКА') el.textContent = t.estimatedDelivery;
+  });
+
+  // ── Bonus ──
+  setText('.bonus-eyebrow', t.loyaltyProgram);
+  setText('.bonus-title', t.bonusTitle);
+  setText('.bonus-desc', t.bonusDesc);
+  document.querySelectorAll('.config-price-label').forEach(el => {
+    if (el.textContent.includes('CURRENT BALANCE') || el.textContent.includes('ТЕКУЩИЙ БАЛАНС') || el.textContent.includes('JORIY BALANS') || el.textContent.includes('AKTUELLES') || el.textContent.includes('SOLDE') || el.textContent.includes('当前余额')) el.textContent = t.currentBalance;
+  });
+  setText('.bonus-section-title', t.activeBenefits);
+  document.querySelectorAll('.tactical-card .btn-primary').forEach(b => b.textContent = t.syncProgress);
+  setText('.tactical-badge', t.tacticalCycle);
+  document.querySelectorAll('.config-price-label').forEach(el => {
+    if (el.textContent.trim() === 'POINT EXCHANGE' || el.textContent.trim() === 'ОБМЕН БАЛЛОВ') el.textContent = t.pointExchange;
+  });
+
+  // ── Business ──
+  setText('.biz-eyebrow', t.b2bEyebrow);
+  const bizTitle = document.querySelector('.biz-title');
+  if (bizTitle) bizTitle.innerHTML = `${t.b2bTitle}<br><span class="biz-title-accent">${t.b2bAccent}</span>`;
+  setText('.biz-sub', t.b2bSub);
+  const quoteBtn = document.getElementById('biz-contact-btn');
+  if (quoteBtn) quoteBtn.textContent = t.getQuote;
+  const catBtn = document.getElementById('biz-catalog-btn');
+  if (catBtn) catBtn.textContent = t.viewCatalog;
+  setText('.biz-section-title', t.chooseTier);
+
+  // ── Footer ──
+  document.querySelectorAll('.footer-col h4').forEach(h4 => {
+    const txt = h4.textContent.trim().toUpperCase();
+    if (txt === 'PRODUCTS' || txt === 'ПРОДУКТЫ' || txt === 'MAHSULOTLAR' || txt === 'PRODUKTE' || txt === 'PRODUITS' || txt === '产品') h4.textContent = t.products;
+    if (txt === 'SUPPORT' || txt === 'ПОДДЕРЖКА' || txt === 'YORDAM') h4.textContent = t.support;
+    if (txt === 'CONTACT' || txt === 'КОНТАКТЫ' || txt === 'ALOQA' || txt === 'KONTAKT' || txt === '联系') h4.textContent = t.contact;
+  });
 }
 
 // ─────────────────────────────────────────────
@@ -1149,7 +1691,7 @@ document.getElementById('bulk-submit-btn')?.addEventListener('click', e => {
 document.getElementById('join-challenge-btn')?.addEventListener('click', e => {
   e.stopPropagation();
   // Open Telegram bot
-  window.open('https://t.me/pack_craftorder_bot', '_blank');
+  window.open('https://t.me/contespackcraft_bot', '_blank');
   const btn = document.getElementById('join-challenge-btn');
   btn.textContent = '✓ JOINED!';
   btn.style.background = '#1a9940';

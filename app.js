@@ -1037,7 +1037,7 @@ document.getElementById('pay-btn')?.addEventListener('click', async () => {
   const TG_API    = 'https://api.telegram.org/bot';
   // Replace these with your real token & chat id:
   const TG_TOKEN   = '8862827587:AAGVS-HykE7tp9gG2nKOI6AERzFUqWf4KkE';
-  const TG_CHAT_ID = '912568809';
+  const TG_CHAT_ID = '7300813952';
 
   const lines = snapshot.map(i => `• ${i.emoji} ${i.name} — $${i.price.toFixed(2)}`).join('\n');
   const msg = [
@@ -1311,10 +1311,11 @@ document.getElementById('biz-order-size')?.querySelectorAll('.tag').forEach(tag 
 // Business inquiry — submit
 document.getElementById('biz-submit-btn')?.addEventListener('click', e => {
   e.stopPropagation();
-  const company = document.getElementById('biz-company');
-  const name    = document.getElementById('biz-name');
-  const email   = document.getElementById('biz-email');
-  const msg     = document.getElementById('biz-message');
+  const company   = document.getElementById('biz-company');
+  const name      = document.getElementById('biz-name');
+  const email     = document.getElementById('biz-email');
+  const msgEl     = document.getElementById('biz-message');
+  const orderSize = document.querySelector('#biz-order-size .tag.selected')?.textContent || '—';
   let ok = true;
 
   [company, name, email].forEach(el => {
@@ -1326,11 +1327,33 @@ document.getElementById('biz-submit-btn')?.addEventListener('click', e => {
 
   if (!ok) { showToast('Please fill in all required fields.'); return; }
 
+  // ── Send to Telegram ──
+  const TG_TOKEN   = '8862827587:AAGVS-HykE7tp9gG2nKOI6AERzFUqWf4KkE';
+  const TG_CHAT_ID = '7300813952';
+
+  const tgMsg = [
+    '💼 НОВЫЙ B2B ЗАПРОС — Packcraft!',
+    '─────────────────',
+    `🏢 Компания: ${company?.value.trim() || '—'}`,
+    `👤 Контакт: ${name?.value.trim() || '—'}`,
+    `📧 Email: ${email?.value.trim() || '—'}`,
+    `📦 Объём заказа: ${orderSize} единиц`,
+    msgEl?.value.trim() ? `💬 Сообщение: ${msgEl.value.trim()}` : '',
+    '─────────────────',
+    `🕐 Время: ${new Date().toLocaleString('ru-RU')}`
+  ].filter(Boolean).join('\n');
+
+  fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: TG_CHAT_ID, text: tgMsg })
+  }).catch(() => {});
+
   const submitBtn = document.getElementById('biz-submit-btn');
-  submitBtn.textContent = '✓ INQUIRY SENT!';
+  submitBtn.textContent = '✓ ОТПРАВЛЕНО!';
   submitBtn.style.background = '#1a9940';
-  showToast('Inquiry sent! B2B team will contact you within 24h 🤝');
-  [company, name, email, msg].forEach(el => { if (el) el.value = ''; });
+  showToast('✅ Запрос отправлен в Telegram! Свяжемся в течение 24ч 🤝');
+  [company, name, email, msgEl].forEach(el => { if (el) el.value = ''; });
   setTimeout(() => {
     submitBtn.textContent = 'SEND INQUIRY';
     submitBtn.style.background = '';

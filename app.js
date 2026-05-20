@@ -1037,7 +1037,7 @@ document.getElementById('pay-btn')?.addEventListener('click', async () => {
   const TG_API    = 'https://api.telegram.org/bot';
   // Replace these with your real token & chat id:
   const TG_TOKEN   = '8862827587:AAGVS-HykE7tp9gG2nKOI6AERzFUqWf4KkE';
-  const TG_CHAT_ID = '7300813952';
+  const TG_CHAT_ID = '912568809';
 
   const lines = snapshot.map(i => `• ${i.emoji} ${i.name} — $${i.price.toFixed(2)}`).join('\n');
   const msg = [
